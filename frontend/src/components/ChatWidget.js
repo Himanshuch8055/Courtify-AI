@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaPaperPlane, FaSpinner, FaTimes } from "react-icons/fa";
+import { useMediaQuery } from "react-responsive";
 
 const ChatWidget = ({ handleNewUserMessage, title, subtitle, messages, isLoading, isOpen, onClose }) => {
   const [inputMessage, setInputMessage] = useState("");
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -40,7 +42,7 @@ const ChatWidget = ({ handleNewUserMessage, title, subtitle, messages, isLoading
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="fixed right-4 bottom-20 w-96 h-[70vh] bg-white rounded-lg shadow-xl flex flex-col"
+      className={`fixed ${isMobile ? 'inset-0' : 'right-4 bottom-20 w-96 h-[70vh]'} bg-white rounded-lg shadow-xl flex flex-col`}
     >
       <div className="flex justify-between items-center p-4 border-b">
         <h2 className="text-lg font-semibold">{title}</h2>

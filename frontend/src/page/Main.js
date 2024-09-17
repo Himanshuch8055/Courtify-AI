@@ -77,9 +77,9 @@ const Main = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={toggleChat}
-        className="fixed bottom-4 right-4 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-colors z-50"
+        className="fixed bottom-20 right-4 md:bottom-8 md:right-8 bg-blue-500 text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-blue-600 transition-colors z-50"
       >
-        <FaComments size={24} />
+        <FaComments size={20} className="md:w-6 md:h-6" />
       </motion.button>
     </div>
   );
